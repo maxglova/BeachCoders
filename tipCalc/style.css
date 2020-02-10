@@ -1,0 +1,43 @@
+#calculator {
+  width: 200px;
+  height: 230px;
+  border: 1px solid gb(49, 49, 49);
+  box-shadow: 0 0 5px rgb(49, 49, 49);
+  padding: 20px;
+  margin: 60px auto 0;
+  border-radius: 10px;
+}
+
+input[type="text"] {
+  width: 180px;
+  padding: 3px 0 3px 3px;
+  margin: 5px 1px 3px 0;
+  border: solid 1px rgb(86, 86, 248);
+}
+
+input[type="text"]:focus {
+  border: solid 1px rgb(86, 86, 248);
+  box-shadow: 0 0 5px rgb(86, 86, 248);
+  padding: 3px 0 3px 3px;
+  margin: 5px 1px 3px 0;
+}
+
+#calculate {
+  width: 150px;
+  color: white;
+  font-weight: 600;
+  margin: 0 auto;
+  display: table;
+  background-color: red;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+#grand-total-prompt{
+  display: none;
+}
+
+#total{
+  color: red;
+  font-weight: bold;
+}
