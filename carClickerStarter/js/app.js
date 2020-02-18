@@ -5,31 +5,50 @@ TODO:
 - each car will keep count of its vote
 */
 
-// Cars
-// let cars = {
-//     corvette : {brand: 'Chevy', name: 'Corvette', imgSrc: './img/black-convertible-coupe.jpg'},
-//     camero : {brand: 'Chevy', name: 'Camero', imgSrc: './img/chevrolet-camaro.jpg'},
-//     charger : {brand: 'Dodge', name: 'Charger', imgSrc: './img/dodge-charger.jpg'},
-//     mustang : {brand: 'Ford', name: 'Mustang', imgSrc: './img/ford-mustang.jpg'},
-//     benz : {brand: 'Mercedes Benz', name: '300 SL', imgSrc: './img/mercedes-benz.jpg'}
-// 
+
+//Helpers
+const carImg = document.getElementById('car-img');
+const carList = document.getElementById('car-list');
+const carCount = document.getElementById('car-count');
 
 
-// Chooses Random Car
-// var randomNum = Math.floor(Math.random() * cars.length);
 
-// Sends Car to Page
-// document.getElementById('car-img').src = cars[randomNum];
+const cars = [
+  {name: 'Corvette', imgSrc: './img/black-convertible-coupe.jpg', clicks: 0},
+  {name: 'Camero', imgSrc: './img/chevrolet-camaro.jpg', clicks: 0},
+  {name: 'Charger', imgSrc: './img/dodge-charger.jpg', clicks: 0},
+  {name: 'Mustang', imgSrc: './img/ford-mustang.jpg', clicks: 0},
+  {name: 'Benz', imgSrc: './img/mercedes-benz.jpg', clicks: 0},
+];
 
-let car = {
-    init: function (brand, name, imgSrc) {
-        this.brand = brand;
-        this.name = name;
-        this.imgSrc = imgSrc;
-    },
+
+
+// Picks a car at random
+function randomCar() {
+  return cars[Math.floor(Math.random() * cars.length)];
 };
 
-let corvette = Object.create(car);
-corvette.init('Chevy', 'Corvette', './img/black-convertible-coupe.jpg');
 
-console.log(corvette[3]);
+// Checks that an image is loaded 
+function checkSRC() {
+  if(carImg.getAttribute('src') == "")
+  {
+    return carImg.setAttribute('src', randomCar().imgSrc);
+  }
+};
+
+checkSRC();
+
+// Loads new car
+function loadNewCar() {
+  carImg.addEventListener('click', function() {
+    this.clicks++;
+    randomCar();
+    return carImg.setAttribute('src', randomCar().imgSrc);
+  });
+}
+
+loadNewCar();
+
+
+// Car List
