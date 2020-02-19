@@ -60,7 +60,7 @@ const controller = {
 
     // increments the counter for the currently-selected car
     incrementCounter() {
-        model.currentCar.clickCount++
+        model.currentCar.clickCount++;
         carView.render();
     },
 };
@@ -75,7 +75,7 @@ const carView = {
         this.countElem = document.getElementById('car-count');
         this.elCount = document.getElementById('elCount');
 
-        // onl click increment the current ca's counter 
+        // onl click increment the current cars counter 
         this.carImageElem.addEventListener('click', function(){
             controller.incrementCounter();
         });
@@ -114,7 +114,7 @@ const carListView = {
         this.carListElem.innerHTML = '';
 
         // loop over the cars
-        for(let i = 0; i < car.length; i++) {
+        for(i = 0; i < cars.length; i++) {
             // this is the car we're currently looping over
             car = cars[i];
 

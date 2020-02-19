@@ -51,7 +51,7 @@ const stickyNotes = function() {
             controller.getNotes().forEach(function(note){
                 htmlStr += `<li class="note">${note.content}</li>`
             });
-            this.noteList.html(htmlStr);  //.html() is a jQuery
+            this.noteList.html(htmlStr);  
         },
     };
     controller.init();
