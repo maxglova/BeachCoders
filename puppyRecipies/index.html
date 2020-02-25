@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puppy Recipies</title>
+</head>
+<body>
+    <form>
+        <input type='text' name='dis-shit' value='pizza' />
+        <button name='submit' ></button>
+    </form>
+    <script>
+        // baseEndpoint
+        const baseEndpoint = `http://www.recipepuppy.com`;
+        const api = `${baseEndpoint}/api/`;
+
+        // DOM Elements
+        let query = document.querySelector('input').value;
+        
+        function handlerError(err) {
+            console.log(`Huston we have a problem`);
+            console.log(err);
+        }
+        
+        // query
+        async function displayRecipies() {
+            const response = await fetch(`${api}?q=${query}`);
+            const data = await response.json(); // = JSON.parse()
+            console.log(data);
+            // load to the DOM
+        }
+
+        displayRecipies('burger').catch(handlerError);
+    </script>
+</body>
+</html>

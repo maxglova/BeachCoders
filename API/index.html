@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="user"></p>
+
+    <script>
+        const myAPI = `https://raw.githubusercontent.com/maxglova/api-work/master/beachCoders%20course%20work%20`;
+        const userEl = document.querySelector('.user');
+        
+        function handlerError(err) {
+            console.log(`Huston we have a problem`);
+            console.log(err);
+        }
+        
+        
+        async function displayUser() {
+            const response = await fetch(myAPI);
+            const data = await response.json(); // = JSON.parse()
+                userEl.textContent = `${data.profile.name} lives in ${data.profile.location[0]}  ${data.profile.location[1]}` ;
+
+        }
+
+        displayUser();
+        
+    </script>
+</body>
+</html>
