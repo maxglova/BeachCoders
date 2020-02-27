@@ -4,34 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puppy Recipies</title>
+    <style>
+        form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        input{
+            width: 100%;
+        }
+        #submit-btn{
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            background: linear-gradient(0deg, rgba(7,120,163,1) 0%, 
+                                            rgba(0,176,245,1) 100%);
+            color: #fff;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            border: none;
+        }
+        #submit-btn:hover{
+            background: linear-gradient(0deg, rgba(7,160,163,1) 0%, 
+                                            rgba(0,176,245,1) 100%);
+        }
+        .recipies{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .recipe {
+            border: 2px soild rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-    <form>
-        <input type='text' name='dis-shit' value='pizza' />
-        <button name='submit' ></button>
+    <form class='search'>
+        <input type='text' name='query' value='burger' />
+        <button name='submit' id='submit-btn'>Submit</button>
     </form>
-    <script>
-        // baseEndpoint
-        const baseEndpoint = `http://www.recipepuppy.com`;
-        const api = `${baseEndpoint}/api/`;
-
-        // DOM Elements
-        let query = document.querySelector('input').value;
-        
-        function handlerError(err) {
-            console.log(`Huston we have a problem`);
-            console.log(err);
-        }
-        
-        // query
-        async function displayRecipies() {
-            const response = await fetch(`${api}?q=${query}`);
-            const data = await response.json(); // = JSON.parse()
-            console.log(data);
-            // load to the DOM
-        }
-
-        displayRecipies('burger').catch(handlerError);
-    </script>
+    <div class="recipies"></div>
+    <script src='./app.js'></script>
 </body>
 </html>

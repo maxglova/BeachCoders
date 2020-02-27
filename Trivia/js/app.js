@@ -28,10 +28,6 @@
                 let incorrectAnswers = questions[i].incorrect_answers;
                 let choices = correctAnswer += incorrectAnswers;
 
-
-
-
-
                 triviaContainer.innerHTML += `<p class="question">${question}</p> </br>
                                                 <input type="checkbox" id="vehicle1" name="vehicle1" value="">
                                                 <label for="vehicle1"> I have a bike</label><br>

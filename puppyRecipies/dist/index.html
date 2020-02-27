@@ -4,64 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puppy Recipies</title>
+    <style>form{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        input{
+            width: 100%;
+        }
+        #submit-btn{
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            background: linear-gradient(0deg, rgba(7,120,163,1) 0%, 
+                                            rgba(0,176,245,1) 100%);
+            color: #fff;
+            font-weight: bold;
+            font-size: 12px;
+            text-transform: uppercase;
+            border: none;
+        }
+        #submit-btn:hover{
+            background: linear-gradient(0deg, rgba(7,160,163,1) 0%, 
+                                            rgba(0,176,245,1) 100%);
+        }
+        .recipies{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .recipe {
+            border: 2px soild rgba(0, 0, 0, 0.2);
+            padding: 10px;
+        }</style>
 </head>
 <body>
-    <form>
-        <input type="text" name="dis-shit" value="pizza">
-        <button name="submit"></button>
+    <form class="search">
+        <input type="text" name="query" value="burger">
+        <button name="submit" id="submit-btn">Submit</button>
     </form>
-    <script>function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
-// baseEndpoint
-var baseEndpoint = "http://www.recipepuppy.com";
-var api = "".concat(baseEndpoint, "/api/"); // DOM Elements
-
-var query = document.querySelector('input').value;
-
-function handlerError(err) {
-  console.log("Huston we have a problem");
-  console.log(err);
-} // query
-
-
-function displayRecipies() {
-  return _displayRecipies.apply(this, arguments);
-}
-
-function _displayRecipies() {
-  _displayRecipies = _asyncToGenerator(
-  /*#__PURE__*/
-  regeneratorRuntime.mark(function _callee() {
-    var response, data;
-    return regeneratorRuntime.wrap(function _callee$(_context) {
-      while (1) {
-        switch (_context.prev = _context.next) {
-          case 0:
-            _context.next = 2;
-            return fetch("".concat(api, "?q=").concat(query));
-
-          case 2:
-            response = _context.sent;
-            _context.next = 5;
-            return response.json();
-
-          case 5:
-            data = _context.sent;
-            // = JSON.parse()
-            console.log(data); // load to the DOM
-
-          case 7:
-          case "end":
-            return _context.stop();
-        }
-      }
-    }, _callee);
-  }));
-  return _displayRecipies.apply(this, arguments);
-}
-
-displayRecipies('burger').catch(handlerError);</script>
+    <div class="recipies"></div>
+    <script src="/app.c328ef1a.js"></script>
 </body>
 </html>
